@@ -1,10 +1,3 @@
-// const db = {
-//   user: [
-//     { id: '1', name: 'Carlos' },
-//     { id: '2', name: 'Luis' }
-//   ]
-// }
-
 export class Store {
   constructor() {
     this.db = {
@@ -29,8 +22,8 @@ export class Store {
       this.db[tabla] = []
     }
     this.db[tabla].push(data)
+    // console.log(data)
 
-    // console.log(this.db)
     return data
   }
 
@@ -41,7 +34,7 @@ export class Store {
   }
 
   query = async (tabla, q) => {
-    let col = await list(tabla)
+    let col = await this.list(tabla)
     let keys = Object.keys(q)
     let key = keys[0]
 
